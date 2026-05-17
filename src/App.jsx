@@ -1,9 +1,14 @@
+import { Dashboard } from "./Components/Dashboard"
 import FinanceContext, { FinanceProvider } from "./Components/FinanceContext"
 
 function App() {
   return (
     <>
-     <FinanceContext/>
+     <FinanceProvider>
+      <FinanceContext/>
+      <Dashboard/>
+     </FinanceProvider>
+     
     
     </>
   )
