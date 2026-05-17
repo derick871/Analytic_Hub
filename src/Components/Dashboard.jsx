@@ -47,7 +47,7 @@ export const Dashboard = () => {
     return (
       <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4">
         <div className="w-full max-w-md space-y-6 text-center bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
-          <h2 className="text-3xl font-extrabold text-gray-900">Finance Hub Canvas</h2>
+          <h2 className="text-3xl font-extrabold text-gray-900">Finance Hub</h2>
           <p className="text-sm text-gray-500">Please sign in to view and organize your active ledger items.</p>
           <button 
             onClick={loginWithGoogle}
