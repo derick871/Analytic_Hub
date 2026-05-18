@@ -28,7 +28,7 @@ export default function AuthPage() {
       <div className="w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
         
         {/* Visual accents */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-emerald-500 rounded-b-full"></div>
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-red-400 to-emerald-500 rounded-b-full"></div>
 
         <div className="text-center mb-8">
           <div className="inline-block bg-amber-600 px-3 py-1 rounded-lg text-white font-black text-xs tracking-tighter mb-3">
@@ -51,7 +51,7 @@ export default function AuthPage() {
 
         <form onSubmit={handleAuthSubmission} className="space-y-4">
           <div>
-            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Email Identity</label>
+            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Email :</label>
             <div className="relative">
               <Mail className="absolute left-3 top-2.5 text-slate-600" size={16} />
               <input
@@ -66,7 +66,7 @@ export default function AuthPage() {
           </div>
 
           <div>
-            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Security Token (Password)</label>
+            <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">Security Code(Password):</label>
             <div className="relative">
               <Lock className="absolute left-3 top-2.5 text-slate-600" size={20} />
               <input
@@ -82,7 +82,7 @@ export default function AuthPage() {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white text-xs font-bold py-2.5 rounded-xl transition-all flex items-center justify-center gap-1 shadow-md shadow-blue-600/10 mt-6"
+            className="w-half bg-slate-950 hover:bg-amber-500 active:bg-blue-700 text-white text-xs font-bold py-2.5 rounded-xl transition-all flex items-center justify-center gap-1 shadow-md shadow-blue-600/10 mt-6"
           >
             {isRegistering ? "Execute Core Provisioning" : "Verify and Initialize Access"}
             <ChevronRight size={14} />
