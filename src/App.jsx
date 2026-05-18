@@ -1,26 +1,22 @@
-import { Auth } from "./Components/Auth";
-import { Dashboard } from "./Components/Dashboard";
-import { FinanceProvider, useFinance } from "./Components/FinanceContext";
+import { FinanceProvider, useFinance } from './Components/FinanceContext';
+import Auth from './Components/Auth';
+import Dashboard from './Components/Dashboard';
 
-// Created an inner component to safely access context values
 function AppContent() {
   const { user } = useFinance();
 
-  // If user state is empty/logged out, show Auth page; otherwise show Dashboard
-  return !user ? <Auth /> : <Dashboard />;
+  // Route guarding conditional execution block
+  if (!user) {
+    return <Auth />;
+  }
+
+  return <Dashboard />;
 }
 
-function App() {
+export default function App() {
   return (
     <FinanceProvider>
       <AppContent />
     </FinanceProvider>
-    
   );
-
-  
 }
-
-
-
-export default App;

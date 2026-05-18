@@ -3,16 +3,17 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "YOUR_API_KEY_FALLBACK",
+  authDomain: "task-manager-df5a2.firebaseapp.com",
+  projectId: "task-manager-df5a2",
+  storageBucket: "task-manager-df5a2.appspot.com",
+  messagingSenderId: "847291048201",
+  appId: "1:847291048201:web:a1b2c3d4e5f6g7h8i9j0k"
 };
 
-// Initialize app and structural Firebase instances
 const app = initializeApp(firebaseConfig);
+
 export const auth = getAuth(app);
-export const googleProvider = new GoogleAuthProvider();
 export const db = getFirestore(app);
+export const googleProvider = new GoogleAuthProvider();
+export default app;
