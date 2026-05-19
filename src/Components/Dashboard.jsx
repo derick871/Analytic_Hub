@@ -212,7 +212,7 @@ export default function Dashboard() {
             <div>
               <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Net Cash Flow</span>
               <h3 className={`text-2xl font-bold tracking-tight mt-1 ${dynamicMetrics.netCashFlow >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
-                Kshs: {dynamicMetrics.netCashFlow.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                ${dynamicMetrics.netCashFlow.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               </h3>
             </div>
             <div className={`p-2.5 rounded-lg ${dynamicMetrics.netCashFlow >= 0 ? 'bg-emerald-500/10 text-emerald-400' : 'bg-rose-500/10 text-rose-400'}`}>
@@ -224,7 +224,7 @@ export default function Dashboard() {
             <div>
               <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Aggregate Revenue</span>
               <h3 className="text-2xl font-bold tracking-tight mt-1 text-emerald-400">
-                Kshs: {dynamicMetrics.incomeSum.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                ${dynamicMetrics.incomeSum.toLocaleString(undefined, { minimumFractionDigits: 2 })}
               </h3>
             </div>
             <div className="p-2.5 bg-emerald-500/10 text-emerald-400 rounded-lg">
@@ -236,7 +236,7 @@ export default function Dashboard() {
             <div>
               <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">Total Outlays</span>
               <h3 className="text-2xl font-bold tracking-tight mt-1 text-rose-400">
-                Kshs: {dynamicMetrics.expenseSum.toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                ${dynamicMetrics.expenseSum.toLocaleString(undefined, { minimumFractionDigits: 2 })}
               </h3>
             </div>
             <div className="p-2.5 bg-rose-500/10 text-rose-400 rounded-lg">
@@ -616,7 +616,7 @@ export default function Dashboard() {
                           Day {bill.dueDay}
                         </td>
                         <td className="py-2.5 px-3 text-right font-bold text-slate-200 font-mono">
-                          Kshs: {bill.amount.toFixed(2)}
+                          ${bill.amount.toFixed(2)}
                         </td>
                         <td className="py-2.5 px-3 text-center">
                           <span className="bg-emerald-500/10 text-emerald-400 text-[10px] px-2 py-0.5 rounded-full font-medium">
