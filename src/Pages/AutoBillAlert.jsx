@@ -129,7 +129,6 @@ export default function AutoBillAlerts() {
 
   return (
     <div className="space-y-6">
-      {/* SECTION 1: SYSTEM ALERTS T-5 DISPATCH BANNER */}
       {activeAlerts.length > 0 && (
         <section className="bg-amber-950/20 border border-amber-500/30 rounded-xl p-4 flex flex-col gap-3">
           <div className="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase tracking-wider">
@@ -141,7 +140,7 @@ export default function AutoBillAlerts() {
                 <div>
                   <p className="font-semibold text-slate-200">{alert.name}</p>
                   <p className="text-[10px] text-amber-500/80 mt-0.5 font-medium">
-                    ⚠️ Due in 5 Days (Automated Settlement Pending on Day {alert.dueDay})
+                     Due in 5 Days (Automated Settlement Pending on Day {alert.dueDay})
                   </p>
                 </div>
                 <span className="font-bold text-amber-400 font-mono text-right">
@@ -159,7 +158,7 @@ export default function AutoBillAlerts() {
         {/* BILL FORM REGISTRATION INTAKE CRADLE */}
         <div className="bg-slate-900 p-5 rounded-xl border border-slate-800 lg:col-span-1">
           <h2 className="text-sm font-semibold text-slate-200 flex items-center gap-2 mb-4">
-            <PlusCircle className="text-blue-400" size={16} /> Schedule New Bill
+            <PlusCircle className="text-blue-400" size={16} /> Monthly Bills
           </h2>
           <form onSubmit={handleCreateBill} className="space-y-3.5">
             <div>

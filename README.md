@@ -1,4 +1,4 @@
-# Analytic_hub
+# Analytic_Hub
 A robust personal finance tracker and analytical dashboard built to streamline expense ingestion, budget tracking, and real-time financial reporting.
 
 ## Key-features

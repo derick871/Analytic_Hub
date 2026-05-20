@@ -33,7 +33,6 @@ export default function MiniStatement({ transactions }) {
   return (
     <div className="bg-slate-900 rounded-2xl border border-slate-800 p-5 shadow-xl space-y-4 max-w-md w-full">
       
-      {/* HEADER SECTION */}
       <div className="flex items-center justify-between border-b border-slate-800/60 pb-3">
         <div className="flex items-center gap-2.5">
           <div className="bg-blue-500/10 text-blue-400 p-2 rounded-xl border border-blue-500/10">
