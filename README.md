@@ -12,6 +12,7 @@ A robust personal finance tracker and analytical dashboard built to streamline e
 
 ## Tech Stack
 **Frontend**: React (Vite), Tailwind CSS, shadcn/ui, Recharts
+
 **Backend as-a-service**: Firebase (Firestore, Auth)
 **State management**: Redux Toolkit
 
@@ -48,3 +49,11 @@ src/
 
 ## Licence
 Distributed under the MIT lisence
+Copyright (c) 2026 Derick
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
