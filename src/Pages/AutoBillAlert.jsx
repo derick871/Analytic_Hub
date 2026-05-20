@@ -277,9 +277,7 @@ export default function AutoBillAlerts() {
             )}
           </div>
           
-          <p className="text-[10px] text-slate-500 mt-4 leading-relaxed border-t border-slate-800/60 pt-3">
-            💡 **Auto-Debit Engine Rules:** When the tracker syncs to a scheduled due day, a background hook converts the target config array details into an automated system expense log injected immediately back to your global Ledger logs.
-          </p>
+          
         </div>
 
       </div>
