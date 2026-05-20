@@ -2,7 +2,7 @@
 import { useState, useMemo } from 'react';
 import { useFinance } from './FinanceContext';
 import { 
-  PlusCircle, Calendar, LogOut, Bell, LayoutDashboard, Layers, ShieldAlert 
+  PlusCircle, Calendar, LogOut, LayoutDashboard, Layers, ShieldAlert 
 } from 'lucide-react';
 
 // Subcomponents Imported Below
@@ -11,6 +11,7 @@ import BalanceAreaChart from '../Components/BalanceAreaChart';
 import ExpenseDistributionChart from '../Components/ExpenseDistributionChart';
 import TransactionTable from '../Components/TransactionTable';
 import MiniStatement from '../Pages/MiniStatement'; 
+import AutoBillAlerts from '../Components/AutoBillAlerts'; // 🛠️ New extracted import
 
 const DEFAULT_EXPENSE_CATEGORIES = ['Food', 'Housing', 'Utilities', 'Transport', 'Leisure', 'Shopping'];
 
@@ -22,11 +23,6 @@ export default function Dashboard() {
     description: '', amount: '', type: 'expense', category: 'Shopping',
     date: new Date().toISOString().split('T')[0]
   });
-
-  const [autoBills] = useState([
-    { id: 1, name: "WIFI Internet Home", amount: 1500, paybill: "502100", account: "zuku552", phone: "254745668544", dueDay: 24},
-    { id: 2, name: "KPLC Tokens Failsafe", amount: 1000, paybill: "888888", account: "37199281", phone: "254745668544", dueDay: 24 }
-  ]);
 
   // --- COMPUTE ENGINES ---
   const dynamicMetrics = useMemo(() => {
@@ -41,15 +37,6 @@ export default function Dashboard() {
     return { incomeSum, expenseSum, netCashFlow, savingsRate };
   }, [transactions]);
 
-  const autoBillAlerts = useMemo(() => {
-    const SYSTEM_CURRENT_DAY = 19; // May 19, 2026 Context Execution Window
-    return autoBills.map(bill => {
-      let daysUntilDue = bill.dueDay - SYSTEM_CURRENT_DAY;
-      if (daysUntilDue < 0) daysUntilDue = (31 - SYSTEM_CURRENT_DAY) + bill.dueDay;
-      return { ...bill, daysUntilDue, isTriggered: daysUntilDue === 5 };
-    }).filter(bill => bill.isTriggered);
-  }, [autoBills]);
-
   const categoricalChartData = useMemo(() => {
     const map = {};
     transactions.filter(tx => tx.type === 'expense').forEach(tx => {
@@ -58,7 +45,6 @@ export default function Dashboard() {
     return Object.keys(map).map(key => ({ name: key, value: map[key] }));
   }, [transactions]);
 
-  // 🛠️ FIX: Re-enabled and corrected from const to let so totals accumulate
   const balanceTimelineData = useMemo(() => {
     const sortedTimeline = [...transactions].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
     let cumulativeBalance = 0; 
@@ -160,20 +146,8 @@ export default function Dashboard() {
       </nav>
 
       <div className="max-w-7xl mx-auto p-4 sm:p-6 space-y-6">
-        {/* AUTOMATION WARNING BANNER */}
-        {autoBillAlerts.length > 0 && (
-          <section className="bg-amber-950/20 border border-amber-500/30 rounded-xl p-4 flex flex-col gap-3">
-            <div className="flex items-center gap-2 text-amber-400 text-xs font-bold uppercase"><Bell size={16} /> M-PESA Automation Notification Pipeline (T-5 Days)</div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-              {autoBillAlerts.map(alert => (
-                <div key={alert.id} className="bg-slate-950/60 border border-amber-500/20 rounded-lg p-3 text-xs flex justify-between items-center">
-                  <div><p className="font-semibold text-slate-200">{alert.name}</p></div>
-                  <span className="font-bold text-amber-400">Kshs: {alert.amount.toFixed(2)}</span>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
+        {/* AUTOMATION WARNING BANNER MODULE PLACEHOLDER */}
+        <AutoBillAlerts />
 
         {/* 1. SEPARATED KPI CARDS BLOCK */}
         <AnalyticsSummaryCards metrics={dynamicMetrics} />
@@ -186,7 +160,6 @@ export default function Dashboard() {
 
         {/* 3. FORMS, MINI-STATEMENT & DATA LEDGER SYSTEM MAP */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* LEFT-COLUMN CONTAINING FORM AND MINI STATEMENT */}
           <div className="space-y-6 lg:col-span-1">
             {/* LEDGER INTAKE ENGINE */}
             <div className="bg-slate-900 p-5 rounded-xl border border-slate-800">
@@ -210,7 +183,6 @@ export default function Dashboard() {
               </form>
             </div>
 
-            {/* 🛠️ PLACEMENT: MiniStatement integrated with matching width */}
             <MiniStatement transactions={transactions} />
           </div>
 
