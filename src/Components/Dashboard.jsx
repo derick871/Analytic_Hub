@@ -11,7 +11,7 @@ import BalanceAreaChart from '../Components/BalanceAreaChart';
 import ExpenseDistributionChart from '../Components/ExpenseDistributionChart';
 import TransactionTable from '../Components/TransactionTable';
 import MiniStatement from '../Pages/MiniStatement'; 
-import AutoBillAlerts from '../Components/AutoBillAlerts'; // 🛠️ New extracted import
+import AutoBillAlerts from '../Pages/AutoBillAlert';
 
 const DEFAULT_EXPENSE_CATEGORIES = ['Food', 'Housing', 'Utilities', 'Transport', 'Leisure', 'Shopping'];
 
