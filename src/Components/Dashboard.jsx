@@ -10,8 +10,10 @@ import TransactionTable from '../Components/TransactionTable';
 import MiniStatement from '../Pages/MiniStatement'; 
 import AutoBillAlerts from '../Pages/AutoBillAlert';
 import Navbar from '../Layout/Navbar';
-import { Button } from '@base-ui/react';
-import { Link } from 'react-router-dom';
+import Footer from '../Layout/Footer';
+
+// Updated import path to match your exported component name seamlessly
+import MonthlySummaryDashboard from '../Pages/MonthlySummary'; 
 
 const DEFAULT_EXPENSE_CATEGORIES = ['Food', 'Housing', 'Utilities', 'Transport', 'Leisure', 'Shopping'];
 
@@ -104,21 +106,11 @@ export default function Dashboard() {
     );
   }
 
-  return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-400 font-sans antialiased transition-colors duration-300">
-      
-      {/* INTEGRATED THEME-ENABLED SYSTEM NAVBAR */}
-      <Navbar 
-        netCashFlow={dynamicMetrics.netCashFlow} 
-        activeTab={activeTab} 
-        setActiveTab={setActiveTab} 
-        onLogout={logoutUser} 
-      />
-
-      <div className="max-w-7xl mx-auto p-4 sm:p-6 space-y-6">
-        
-        {/* TAB TARGET VIEW SWITCH ENGINE */}
-        {activeTab === 'Dashboard' ? (
+  // --- TAB CONTROLLER VIEW RESOLVER ---
+  const renderTabContent = () => {
+    switch (activeTab) {
+      case 'Dashboard':
+        return (
           <>
             {/* AUTOMATION WARNING BANNER MODULE */}
             <AutoBillAlerts />
@@ -188,8 +180,15 @@ export default function Dashboard() {
               </div>
             </div>
           </>
-        ) : (
-          /* LEDGER LOGS CORE ROOT COMPONENT INTERFACE */
+        );
+
+      case 'Monthly Summary':
+        {/* Renders your full structural subcomponent when tab clicks */}
+        return <MonthlySummaryDashboard />;
+
+      case 'Ledger Logs':
+      default:
+        return (
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm min-h-[500px]">
             <h1 className="text-xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">Ledger Audit History</h1>
             <p className="text-xs text-slate-500 mt-1 mb-6">Historical data pipeline view tracking deep real-time system allocations.</p>
@@ -201,17 +200,27 @@ export default function Dashboard() {
               filterCategories={filterCategories}
               deleteTransaction={deleteTransaction}
             />
-
-            
           </div>
-        )}
+        );
+    }
+  };
 
+  return (
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-400 font-sans antialiased transition-colors duration-300 flex flex-col justify-between">
+      <div>
+        <Navbar 
+          netCashFlow={dynamicMetrics.netCashFlow} 
+          activeTab={activeTab} 
+          setActiveTab={setActiveTab} 
+          onLogout={logoutUser} 
+        />
+
+        <div className="max-w-7xl mx-auto p-4 sm:p-6 space-y-6">
+          {renderTabContent()}
+        </div>
       </div>
-      <Button>
-        <Link>
-        navigate to "/monthly summary"
-        </Link>
-      </Button>
+
+      <Footer />
     </div>
   );
 }
