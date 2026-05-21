@@ -10,6 +10,8 @@ import TransactionTable from '../Components/TransactionTable';
 import MiniStatement from '../Pages/MiniStatement'; 
 import AutoBillAlerts from '../Pages/AutoBillAlert';
 import Navbar from '../Layout/Navbar';
+import { Button } from '@base-ui/react';
+import { Link } from 'react-router-dom';
 
 const DEFAULT_EXPENSE_CATEGORIES = ['Food', 'Housing', 'Utilities', 'Transport', 'Leisure', 'Shopping'];
 
@@ -199,10 +201,17 @@ export default function Dashboard() {
               filterCategories={filterCategories}
               deleteTransaction={deleteTransaction}
             />
+
+            
           </div>
         )}
 
       </div>
+      <Button>
+        <Link>
+        navigate to "/monthly summary"
+        </Link>
+      </Button>
     </div>
   );
 }

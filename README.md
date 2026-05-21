@@ -37,8 +37,9 @@ VITE_FIREBASE_PROJECT_ID=your_project_id
 4.Run the server
 ```bash
 npm run dev
+```
 
- Project structure
+## Project structure
 src/
 ├── components/     # Reusable shadcn UI primitives (cards, buttons)
 ├── context/        # React Context providers for global themes
@@ -46,8 +47,8 @@ src/
 ├── pages/          # Main dashboard views and authentication screens
 ├── utils/          # Formatting helpers and Firebase config
 └── App.jsx         # App routing and layout shell.
-
-Licence
+```
+## Licence
 Distributed under the MIT lisence
 Copyright (c) 2026 Derick
 
