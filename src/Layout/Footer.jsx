@@ -1,4 +1,3 @@
-import React from 'react';
 import { ShieldCheck, Database, CalendarRange, History } from 'lucide-react';
 
 export default function Footer({ activeTab, setActiveTab, totalCount = 0 }) {
