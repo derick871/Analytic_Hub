@@ -168,28 +168,28 @@ export default function AutoBillAlerts() {
 
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <label className="text-[10px] uppercase font-bold text-slate-500 block mb-1">Paybill Number</label>
+                <label className="text-[10px] uppercase font-bold text-white block mb-1">Paybill Number</label>
                 <input type="text" name="paybill" required value={formValues.paybill} onChange={handleInputChange} placeholder="e.g., 888888" className="w-full bg-slate-950 border border-slate-800 rounded-lg py-2 px-3 text-xs text-slate-200 focus:outline-none focus:border-blue-500" />
               </div>
               <div>
-                <label className="text-[10px] uppercase font-bold text-slate-500 block mb-1">Account Number</label>
+                <label className="text-[10px] uppercase font-bold text-white block mb-1">Account Number</label>
                 <input type="text" name="account" required value={formValues.account} onChange={handleInputChange} placeholder="e.g., 37199281" className="w-full bg-slate-950 border border-slate-800 rounded-lg py-2 px-3 text-xs text-slate-200 focus:outline-none focus:border-blue-500" />
               </div>
             </div>
 
             <div>
-              <label className="text-[10px] uppercase font-bold text-slate-500 block mb-1">M-PESA Phone Number</label>
+              <label className="text-[10px] uppercase font-bold text-white block mb-1">M-PESA Phone Number</label>
               <input type="tel" name="phone" required value={formValues.phone} onChange={handleInputChange} placeholder="e.g., 254745668544" className="w-full bg-slate-950 border border-slate-800 rounded-lg py-2 px-3 text-xs text-slate-200 focus:outline-none focus:border-blue-500" />
             </div>
 
             <div className="grid grid-cols-2 gap-2">
               <div>
-                <label className="text-[10px] uppercase font-bold text-slate-500 block mb-1">Amount (Kshs)</label>
+                <label className="text-[10px] uppercase font-bold text-white block mb-1">Amount (Kshs)</label>
                 <input type="number" name="amount" min="1" step="0.01" required value={formValues.amount} onChange={handleInputChange} placeholder="Amount" className="w-full bg-slate-950 border border-slate-800 rounded-lg py-2 px-3 text-xs text-slate-200 focus:outline-none focus:border-blue-500" />
               </div>
               <div>
-                <label className="text-[10px] uppercase font-bold text-slate-500 block mb-1">Due Calendar Day</label>
-                <input type="number" name="dueDay" min="1" max="31" required value={formValues.dueDay} onChange={handleInputChange} placeholder="Day (1-31)" className="w-full bg-slate-950 border border-slate-800 rounded-lg py-2 px-3 text-xs text-slate-200 focus:outline-none focus:border-blue-500" />
+                <label className="text-[10px] uppercase font-bold text-white block mb-1">Due Calendar Day</label>
+                <input type="Date" id="date" name="dueDay" min="1" max="31" required value={formValues.dueDay} onChange={handleInputChange} placeholder="Day (1-31)" className="w-full bg-slate-950 border border-slate-800 rounded-lg py-2 px-3 text-xs text-slate-200 focus:outline-none focus:border-blue-500" />
               </div>
             </div>
 
@@ -213,7 +213,7 @@ export default function AutoBillAlerts() {
 
             {autoBills.length === 0 ? (
               <div className="h-48 border border-dashed border-slate-800 rounded-lg flex flex-col items-center justify-center text-center p-4">
-                <p className="text-xs text-slate-500 max-w-xs leading-relaxed">
+                <p className="text-xs text-white max-w-xs leading-relaxed">
                   No automated bills defined yet. Use the intake scheduler form to register utilities.
                 </p>
               </div>
@@ -221,7 +221,7 @@ export default function AutoBillAlerts() {
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse text-xs">
                   <thead>
-                    <tr className="border-b border-slate-800 text-[10px] uppercase tracking-wider font-bold text-slate-500">
+                    <tr className="border-b border-slate-800 text-[10px] uppercase tracking-wider font-bold text-white">
                       <th className="pb-3 pr-2">Company</th>
                       <th className="pb-3 px-2">Payment Target</th>
                       <th className="pb-3 px-2">Due Day</th>

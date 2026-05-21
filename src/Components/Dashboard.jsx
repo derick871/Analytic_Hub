@@ -219,8 +219,12 @@ export default function Dashboard() {
           {renderTabContent()}
         </div>
       </div>
-
-      <Footer />
+      {/* Replace your raw `<Footer />` tag with this contextual payload */}
+      <Footer 
+        activeTab={activeTab} 
+        setActiveTab={setActiveTab} 
+        totalCount={transactions.length} 
+      />
     </div>
   );
 }

@@ -36,7 +36,7 @@ export default function Navbar({ netCashFlow, activeTab, setActiveTab, onLogout 
             PFH
           </div>
           <span className="font-bold text-base bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent tracking-tight">
-            FinAnalytics Hub
+            PersonalFinanceHub
           </span>
         </div>
 
@@ -175,7 +175,7 @@ export default function Navbar({ netCashFlow, activeTab, setActiveTab, onLogout 
               className="w-full flex items-center justify-center gap-2 bg-rose-50 dark:bg-rose-500/10 hover:bg-rose-600 dark:hover:bg-rose-500 hover:text-white text-rose-600 dark:text-rose-400 py-2.5 rounded-xl text-xs font-semibold border border-rose-200 dark:border-rose-500/20 transition-all"
             >
               <LogOut size={14} />
-              <span>Exit System Session</span>
+              <span>Exit Session</span>
             </button>
           </div>
         </div>

@@ -19,7 +19,7 @@ export default function TransactionTable({
             </h2>
             <p className="text-[11px] text-slate-500">Real-time Cloud Sync Engine (Firestore)</p>
           </div>
-          <div className="flex items-center gap-2 bg-slate-950 px-3 py-1.5 rounded-lg border border-slate-800 text-[11px] self-start sm:self-center">
+          <div className="flex items-center gap-2 bg-slate-700 px-3 py-1.5 rounded-lg border border-slate-800 text-[11px] self-start sm:self-center">
             <Filter size={12} className="text-slate-500" />
             <span className="text-slate-500">Class:</span>
             <select
@@ -35,7 +35,7 @@ export default function TransactionTable({
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-xs text-slate-300">
+          <table className="w-full text-left text-xs text-slate-500">
             <thead className="text-[10px] uppercase font-bold bg-slate-950/60 text-slate-500 border-b border-slate-800">
               <tr>
                 <th className="py-2 px-3 font-medium">Timestamp</th>
@@ -56,11 +56,11 @@ export default function TransactionTable({
                         {tx.category}
                       </span>
                     </td>
-                    <td className={`py-2.5 px-3 text-right font-bold font-mono ${tx.type === 'income' ? 'text-emerald-400' : 'text-rose-400'}`}>
+                    <td className={`py-2.5 px-3 text-right font-bold font-mono ${tx.type === 'income' ? 'text-amber-500' : 'text-rose-400'}`}>
                       {tx.type === 'income' ? '+' : '-'}Kshs: {tx.amount.toFixed(2)}
                     </td>
                     <td className="py-2.5 px-3 text-center">
-                      <button onClick={() => deleteTransaction(tx.id)} className="text-slate-600 hover:text-rose-400 p-1 rounded transition-colors">
+                      <button onClick={() => deleteTransaction(tx.id)} className="text-slate-600 hover:text-red-500 p-1 rounded transition-colors">
                         <Trash2 size={13} />
                       </button>
                     </td>
@@ -68,14 +68,14 @@ export default function TransactionTable({
                 ))
               ) : (
                 <tr>
-                  <td colSpan="5" className="py-8 text-center text-slate-600 font-medium">No live system records match specifications.</td>
+                  <td colSpan="5" className="py-8 text-center text-white font-medium">No live system records match specifications.</td>
                 </tr>
               )}
             </tbody>
           </table>
         </div>
       </div>
-      <div className="text-[10px] text-slate-600 text-right mt-4 pt-3 border-t border-slate-800/50 font-mono">
+      <div className="text-[10px] text-white text-right mt-4 pt-3 border-t border-slate-800/50 font-mono">
         Live State Sync Counter: {visibleTransactions.length} of {totalCount} entries active
       </div>
     </div>
