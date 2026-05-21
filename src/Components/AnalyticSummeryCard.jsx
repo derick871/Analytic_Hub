@@ -9,19 +9,19 @@ export default function AnalyticsSummaryCards({ metrics }) {
         title="Net Cash Flow" 
         value={`Kshs${metrics.netCashFlow.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
         icon={Wallet}
-        variant={metrics.netCashFlow >= 0 ? 'emerald' : 'rose'}
+        variant={metrics.netCashFlow >= 0 ? 'amber' : 'red'}
       />
       <MetricCard 
         title="Aggregate Revenue" 
         value={`Kshs${metrics.incomeSum.toLocaleString(undefined, { minimumFractionDigits: 2 })}`}
         icon={TrendingUp}
-        variant="emerald"
+        variant="blue"
       />
       <MetricCard 
         title="Total Outlays" 
         value={`Kshs${metrics.expenseSum.toLocaleString(undefined, { minimumFractionDigits: 2 })}`}
         icon={TrendingDown}
-        variant="rose"
+        variant="red"
       />
       <MetricCard 
         title="Savings Elasticity" 
