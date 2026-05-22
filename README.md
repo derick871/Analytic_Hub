@@ -1,4 +1,4 @@
-# Personal-finance-Hub
+# Personal-Finance-Hub
 A robust personal finance tracker and analytical dashboard built to streamline expense ingestion, budget tracking, and real-time financial reporting.
 
 ## Key-features
@@ -24,17 +24,17 @@ Ensure you have [node.js]
 ```bash
 git clone[https://github.com/derick871/Analytic_Hub]
 cd Analytic_hub
-
-2. Install dependencies
+```
+### 2. Install dependencies
 npm install
 
-3.Environmental variebles
+### 3.Environmental variebles
 Create a .env.local file in the root directory and add your configurations:
 VITE_FIREBASE_API_KEY=your_api_key
 VITE_FIREBASE_AUTH_DOMAIN=your_auth_domain
 VITE_FIREBASE_PROJECT_ID=your_project_id
 
-4.Run the server
+### 4.Run the server
 ```bash
 npm run dev
 ```
@@ -47,7 +47,7 @@ src/
 ├── pages/          # Main dashboard views and authentication screens
 ├── utils/          # Formatting helpers and Firebase config
 └── App.jsx         # App routing and layout shell.
-```
+
 ## Licence
 Distributed under the MIT lisence
 Copyright (c) 2026 Derick
